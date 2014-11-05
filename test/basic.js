@@ -50,7 +50,11 @@ module.exports = nodeunit.testCase({
 
       setTimeout(function() {
         emitter.emit('readme-test');
-        emitter.emit('error');
+        try {
+          emitter.emit('error');
+        } catch(e){
+          t.ok(e.message); // should throw Unhandled 'error' event
+        }
         emitter.emit('end');
         t.equal(cnt, 2);
         t.done();
