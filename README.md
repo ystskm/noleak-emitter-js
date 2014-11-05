@@ -18,6 +18,11 @@ Install with [npm](http://npmjs.org/):
     var emitter = new Emitter();
     emitter.on('hoge', function(){ console.log(arguments) });
     emitter.emit('hoge', 'a', 'b', 'c'); // => 'a', 'b', 'c'
+    emitter.emit('end');
+    
+    setTimeout(function(){
+      emitter.emit('hoge', 'd'); // => (no output)
+    }, 4);
 
 ### also use on browser
 
