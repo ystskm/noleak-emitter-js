@@ -36,7 +36,7 @@
     }
 
   }
-  for( var i in NonleakEmitter.prototype)
-    MyClass.prototype[i] = Emitter.prototype[i];
+  for( var i in Emitter.prototype)
+    NoleakEmitter.prototype[i] = Emitter.prototype[i];
 
 })(typeof window != 'undefined', typeof module != 'undefined');
