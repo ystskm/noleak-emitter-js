@@ -6,7 +6,7 @@
     throw new Error('NoleakEmitter requires "Emitter" on global-scope');
 
   var processor = typeof setImmediate == 'undefined' ? function(fn) {
-    setTimeout(fn, r)
+    setTimeout(fn, 4)
   }: setImmediate;
 
   has_mod && (module.exports = NoleakEmitter);
