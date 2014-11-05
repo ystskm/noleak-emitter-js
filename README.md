@@ -30,7 +30,10 @@ Install with [npm](http://npmjs.org/):
     emitter.on('hoge', function(){ console.log(arguments) });
     emitter.emit('hoge', 'a', 'b', 'c'); // => ['a', 'b', 'c']
     emitter.emit('end');
-    emitter.emit('hoge', 'd'); // => (no output)
+    
+    setTimeout(function(){
+      emitter.emit('hoge', 'd'); // => (no output)
+    }, 4);
 
 </script>
 ```
