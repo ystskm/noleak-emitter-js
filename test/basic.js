@@ -6,7 +6,7 @@ var repo_ne = 'https://raw.github.com/ystskm/noleak-emitter-js/';
 
 var scripts = [];
 scripts.push(repo_be + "master/Emitter.js");
-scripts.push(repo + "master/NoleakEmitter.js");
+scripts.push(repo_ne + "master/NoleakEmitter.js");
 
 function setup(callback) {
   jsdom.env("<html><head></head><body></body></html>", {
