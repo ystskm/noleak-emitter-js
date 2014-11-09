@@ -4,7 +4,7 @@
 
   if(has_win && window.Emitter)
     Emitter = window.Emitter;
-  if(has_mod && typeof GLOBAL != 'undefined' && Emitter == null)
+  if(has_mod && Emitter == null && typeof GLOBAL != 'undefined')
     Emitter = GLOBAL.Emitter || require('events').EventEmitter;
 
   if(typeof Emitter == 'undefined')

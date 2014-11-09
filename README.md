@@ -3,7 +3,7 @@
 [![Version](https://badge.fury.io/js/noleak-emitter.png)](https://npmjs.org/package/noleak-emitter)
 [![Build status](https://travis-ci.org/ystskm/noleak-emitter-js.png)](https://travis-ci.org/ystskm/noleak-emitter-js)  
   
-Wrapper for Simple Event Emitter ( "util('events').EventEmitter" or "[browser-emitter](https://github.com/ystskm/browser-emitter-js)" ). 
+Wrapper for Simple Event Emitter ( ex1: "util('events').EventEmitter", ex2: "[browser-emitter](https://github.com/ystskm/browser-emitter-js)" ). 
 On "error" or "end" event, you can unbind the listeners automatically.
 
 ## Install
@@ -14,7 +14,8 @@ Install with [npm](http://npmjs.org/):
     
 ## API - Set functions by args
 
-    // On node.js, require('events').EventEmitter will be inherited.
+    // On node.js, "GLOBAL.Emitter" or "require('events').EventEmitter"
+    // will be inherited.
     var NoleakEmitter = require('noleak-emitter');
     var emitter = new NoleakEmitter();
     emitter.on('hoge', function(){ console.log(arguments) });
