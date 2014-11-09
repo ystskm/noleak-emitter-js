@@ -1,5 +1,5 @@
 var nodeunit = require('nodeunit');
-var NoleakEmitter = require('./NoleakEmitter.js');
+var NoleakEmitter = require('../NoleakEmitter');
 
 module.exports = nodeunit.testCase({
   'readme': function(t) {
