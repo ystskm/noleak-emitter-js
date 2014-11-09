@@ -14,6 +14,7 @@ Install with [npm](http://npmjs.org/):
     
 ## API - Set functions by args
 
+```js
     // On node.js, "GLOBAL.Emitter" or "require('events').EventEmitter"
     // will be inherited.
     var NoleakEmitter = require('noleak-emitter');
@@ -22,9 +23,10 @@ Install with [npm](http://npmjs.org/):
     emitter.emit('hoge', 'a', 'b', 'c'); // => 'a', 'b', 'c'
     emitter.emit('end');
     
-    setTimeout(function(){
+    setImmediate(function(){
       emitter.emit('hoge', 'd'); // => (no output)
-    }, 4);
+    });
+```
 
 ### also use on browser
 
@@ -49,6 +51,7 @@ Install with [npm](http://npmjs.org/):
 
 ## if you want to inherit Emitter to another *class*, use prototype chain.
 
+```js
     // for Factory
     var SubClass = function(){
       NoleakEmitter.call(this);
@@ -60,3 +63,4 @@ Install with [npm](http://npmjs.org/):
     var SubClass = function(){
       this.__proto__.__proto__ = new NoleakEmitter();
     }
+```

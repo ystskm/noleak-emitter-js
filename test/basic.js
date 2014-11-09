@@ -48,7 +48,7 @@ module.exports = nodeunit.testCase({
       emitter.emit('readme-test', 0, 1, 2);
       emitter.emit('end', 3, 4, 5);
 
-      setTimeout(function() {
+      setImmediate(function() {
         emitter.emit('readme-test');
         try {
           emitter.emit('error');
@@ -58,7 +58,7 @@ module.exports = nodeunit.testCase({
         emitter.emit('end');
         t.equal(cnt, 2);
         t.done();
-      }, 4);
+      });
     });
   }
 });
