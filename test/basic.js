@@ -48,17 +48,17 @@ module.exports = nodeunit.testCase({
       emitter.emit('readme-test', 0, 1, 2);
       emitter.emit('end', 3, 4, 5);
 
-      setImmediate(function() {
-        emitter.emit('readme-test');
+      setTimeout(function() {
+        emitter.emit('readme-test', 0, 1, 2);
         try {
           emitter.emit('error');
         } catch(e){
           t.ok(e.message); // should throw Unhandled 'error' event
         }
-        emitter.emit('end');
+        emitter.emit('end', 3, 4, 5);
         t.equal(cnt, 2);
         t.done();
-      });
+      }, 4);
     });
   }
 });

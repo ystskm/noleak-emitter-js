@@ -4,8 +4,8 @@
 
   if(has_win && window.Emitter)
     Emitter = window.Emitter;
-  if(has_mod && Emitter == null && typeof GLOBAL != 'undefined')
-    Emitter = GLOBAL.Emitter || require('events').EventEmitter;
+  if(has_mod && typeof GLOBAL != 'undefined')
+    Emitter = Emitter || GLOBAL.Emitter || require('events').EventEmitter;
 
   if(typeof Emitter == 'undefined')
     throw new Error('NoleakEmitter requires "Emitter" on global-scope');
