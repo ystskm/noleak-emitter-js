@@ -1,5 +1,7 @@
 # noleak-emitter
   
+[![Rank](https://nodei.co/npm/noleak-emitter.png?downloads=true&amp;downloadRank=true&amp;stars=true)](https://nodei.co/npm/noleak-emitter/)  
+  
 [![Version](https://badge.fury.io/js/noleak-emitter.png)](https://npmjs.org/package/noleak-emitter)
 [![Build status](https://travis-ci.org/ystskm/noleak-emitter-js.png)](https://travis-ci.org/ystskm/noleak-emitter-js)  
   
