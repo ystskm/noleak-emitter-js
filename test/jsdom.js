@@ -1,25 +1,32 @@
 var nodeunit = require('nodeunit');
-var jsdom = require("jsdom");
+var jsdom, JSDOM = require("jsdom").JSDOM;
 
 var repo_be = 'https://raw.github.com/ystskm/browser-emitter-js/';
 var repo_ne = 'https://raw.github.com/ystskm/noleak-emitter-js/';
 
-var scripts = [];
+var html, scripts = [];
 scripts.push(repo_be + "master/Emitter.js");
 scripts.push(repo_ne + "master/NoleakEmitter.js");
 
 function setup(callback) {
-  jsdom.env("<html><head></head><body></body></html>", {
-    scripts: scripts
-  }, function(errors, window) {
-    errors && console.error(errors), callback(window);
+  html = '<html><head>';
+  scripts.forEach((s) => {
+    html += '<script type="text/javascript" src="' + s + '" async="false"></script>';
   });
+  html += '</head><body></body></html>';
+  jsdom = new JSDOM(html, { 
+    resources: "usable", runScripts: "dangerously"
+  });
+  jsdom.window.onload = () => callback(jsdom.window);
 }
 
 module.exports = nodeunit.testCase({
   'readme': function(t) {
     setup(function(window) {
 
+      console.log(window.Emitter);
+      console.log(window.NoleakEmitter);
+      
       var TestEmitter = window.NoleakEmitter;
       t.equal(typeof TestEmitter, 'function');
 

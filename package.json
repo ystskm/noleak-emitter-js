@@ -1,6 +1,9 @@
 {
   "name": "noleak-emitter",
-  "version": "0.1.1",
+  "version": "0.2.0",
+  "engine": {
+    "node": ">=6.11.0"
+  },
   "author": {
     "name": "Yoshitaka Sakamoto",
     "url": "http://github.com/ystskm",
@@ -12,7 +15,7 @@
   "devDependencies": {
     "nodeunit": "*",
     "nodeunit-ci": "*",
-    "jsdom": "*",
+    "jsdom": "11.0.0",
     "browser-emitter":">=0.4.0"
   },
   "keywords": ["util","events","pipe","chain","function"],
