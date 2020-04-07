@@ -1,7 +1,9 @@
 /***/
 // [noleak-emitter-js] NoleakEmitter.js
+// イベント開放実装もれによりメモリリークを起こすことを回避する。
 (function(has_win, has_mod, Emitter) {
-
+  
+  var NULL = null, TRUE = true, FALSE = false, UNDEF = undefined;
   if(has_win && window.Emitter)
     Emitter = window.Emitter;
   if(has_mod && typeof global != 'undefined')
@@ -25,18 +27,22 @@
 
     function careLeak() {
       processor(function() {
-        if(emitter == null)
+        if(emitter == NULL)
           return;
+    	switch(TRUE) {
 
         // Like Node
-        if(typeof emitter.removeAllListeners == 'function')
+    	case typeof emitter.removeAllListeners == 'function':
           emitter.removeAllListeners();
+    	  break;
 
         // jQuery Oriented API
-        if(typeof emitter.off == 'function')
+        case typeof emitter.off == 'function':
           emitter.off();
-
-        emitter = null;
+          break;
+          
+    	}
+        emitter = NULL;
       });
     }
 
